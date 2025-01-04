@@ -3,19 +3,14 @@
 
 import PackageDescription
 
-let package = Package(
-    name: "VLUIImageKit",
-    products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
-        .library(
-            name: "VLUIImageKit",
-            targets: ["VLUIImageKit"]),
-    ],
-    targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
-        .target(
-            name: "VLUIImageKit"),
-
-    ]
-)
+let package = Package(name: "VLUIImageKit",
+                      platforms: [ .iOS(.v17) ],
+                      products:
+                      [
+                       .library(name: "VLUIImageKit",
+                                targets: [ "VLUIImageKit" ])
+                      ],
+                      targets:
+                      [
+                       .target(name: "VLUIImageKit")
+                      ])
