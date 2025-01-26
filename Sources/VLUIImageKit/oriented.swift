@@ -7,7 +7,7 @@ extension UIImage
   If the instance's orientation is already `.up`, it simply returns the original.
   - Returns: An optional UIImage that represents the correctly oriented image.
  */
- var orientedUp: UIImage?
+ public var orientedUp: UIImage?
  {
   if imageOrientation == .up { return self }
 
