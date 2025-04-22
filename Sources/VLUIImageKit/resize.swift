@@ -34,10 +34,11 @@ extension UIImage
                      contentMode: ContentMode = .fill,
                      fillColor: UIColor? = nil) -> UIImage
  {
-  guard size.width > 0 && size.height > 0 else { return self }
-  guard size.width < self.size.width || size.height < self.size.height else { return self }
-  guard targetSize.width > 0, targetSize.height > 0 else { return self }
-  
+  guard targetSize.width > 0,
+        targetSize.height > 0,
+        targetSize.width < self.size.width || targetSize.height < self.size.height
+  else { return self }
+
   let widthRatio = targetSize.width / self.size.width
   let heightRatio = targetSize.height / self.size.height
   let scaleFactor: CGFloat
@@ -74,7 +75,10 @@ extension UIImage
 
  private func scaledSize(for maxDimension: CGFloat, basedOnWidth: Bool) -> CGSize
  {
-  guard self.size.width > 0, self.size.height > 0 else { return .zero }
+  guard self.size.width > 0,
+        self.size.height > 0
+  else { return .zero }
+
   let aspectRatio = self.size.width / self.size.height
   guard aspectRatio > 0 else { return .zero }
 
